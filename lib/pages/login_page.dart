@@ -64,7 +64,7 @@ class _LoginPageState extends State<LoginPage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Icon(
-                          Icons.medical_services,
+                          Icons.electrical_services_outlined,
                           size: 80,
                           color: Colors.white,
                         ),
@@ -161,7 +161,7 @@ class _LoginPageState extends State<LoginPage> {
                                         //                                          phoneNumber: "+961" + _phoneController.text,
                                         //                                          password: _passwordController.text,
                                         //                                        );
-                                        Navigator.pushNamed(context, '/');
+                                        Navigator.pushNamed(context, '/usermain');  // should be Navigator.pushNamed(context, '/');
                                       } catch (e) {
                                         ScaffoldMessenger.of(context).showSnackBar(
                                           SnackBar(

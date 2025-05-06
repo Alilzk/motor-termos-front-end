@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:motor_termos_front_end/pages/login_page.dart';
 import 'package:motor_termos_front_end/pages/main_user.dart';
+
 Route<dynamic> generateRoute(RouteSettings settings) {
   switch (settings.name) {
     case '/':
@@ -8,8 +9,6 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     case '/login':
       return MaterialPageRoute(builder: (context) => LoginPage());
     case '/usermain':
-      return MaterialPageRoute(builder: (context) => MainUserPage());
-    case '/payment':
       return MaterialPageRoute(builder: (context) => MainUserPage());
     default:
       return MaterialPageRoute(builder: (context) => LoginPage());
