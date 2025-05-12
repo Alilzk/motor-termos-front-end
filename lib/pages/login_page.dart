@@ -201,27 +201,6 @@ class _LoginPageState extends State<LoginPage> {
                                   ),
                                 ),
                           SizedBox(height: 20),
-                          // Register Link
-                          TextButton(
-                            onPressed: () {
-                              Navigator.pushNamed(context, '/choosetype');
-                            },
-                            child: RichText(
-                              text: TextSpan(
-                                text: "Don't have an account? ",
-                                style: TextStyle(color: Colors.black54),
-                                children: [
-                                  TextSpan(
-                                    text: "Register here",
-                                    style: TextStyle(
-                                      color: primaryColor,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
                         ],
                       ),
                     ),
