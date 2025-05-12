@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart'; // To format phone number
-
+import '../services/Api.dart';
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
@@ -9,6 +9,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final auth = DataBaseService();
   final _phoneController = TextEditingController();
   final _passwordController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
@@ -144,7 +145,7 @@ class _LoginPageState extends State<LoginPage> {
                                 borderSide: BorderSide(color: primaryColor),
                               ),
                             ),
-                            validator: _validatePassword,
+//                            validator: _validatePassword,
                           ),
                           SizedBox(height: 30),
                           // Login Button
@@ -157,11 +158,18 @@ class _LoginPageState extends State<LoginPage> {
                                         _isLoading = true;
                                       });
                                       try {
-                                        //                                        await auth.loginUser(
-                                        //                                          phoneNumber: "+961" + _phoneController.text,
-                                        //                                          password: _passwordController.text,
-                                        //                                        );
-                                        Navigator.pushNamed(context, '/usermain');  // should be Navigator.pushNamed(context, '/');
+                                        final success = await auth.login(_phoneController.text, _passwordController.text);
+                                        if (success) {
+                                          Navigator.pushNamed(context, '/usermain');
+                                        }
+                                        else {
+                                          ScaffoldMessenger.of(context).showSnackBar(
+                                            SnackBar(
+                                              content: Text('Login failed: incorrect username or password'),
+                                              backgroundColor: Colors.red,
+                                            ),
+                                          );
+                                        }
                                       } catch (e) {
                                         ScaffoldMessenger.of(context).showSnackBar(
                                           SnackBar(
